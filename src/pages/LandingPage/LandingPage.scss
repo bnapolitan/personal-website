@@ -1,0 +1,32 @@
+
+@import "../../style/variables";
+
+/*  ===============
+    Layout
+    ============== */
+
+.landingContainer {
+    // background-color: $core-green;
+    max-width: 100% !important;
+}
+
+.landingPageBackground {
+    overflow: hidden;
+    width: 100%;
+    height: 550px;
+}
+
+.col__hoverButton {
+    padding: 40px;
+    height: 160px;
+}
+
+.col__hoverButton:hover {
+    background-color: $core-blue;
+    background-image: var(--bs-gradient);
+    color: white;
+}
+
+.middleButton:hover {
+    background-color: $pink;
+}

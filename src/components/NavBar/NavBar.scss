@@ -1,0 +1,15 @@
+
+@import "../../style/variables";
+
+$nav-padding: 8%;
+
+.navBar {
+    background-color: $core-blue;
+    padding-left: $nav-padding;
+    padding-right: $nav-padding;
+}
+
+.navText {
+    padding-left: 10px;
+    padding-right: 2px;
+}

@@ -1,0 +1,32 @@
+
+@import "../../../style/variables";
+
+$gallery-container-padding: 30px;
+.galleryContainer {
+    // background-color: var(--bs-gray);
+    background-color: rgba(175, 175, 175, 0.936);
+    background-image: var(--bs-gradient);
+
+    padding: $gallery-container-padding;
+    padding-left: $gallery-container-padding !important;
+    padding-right: $gallery-container-padding !important;
+}
+
+.galleryContainer__text {
+    text-align: left;
+}
+
+.galleryContainer__row {
+    height: 100%;
+}
+
+.picContainer {
+    margin: 0px 30px;
+}
+
+.pic {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+

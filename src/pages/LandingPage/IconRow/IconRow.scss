@@ -1,0 +1,38 @@
+
+@import "../../../style/variables";
+
+$icon-container-padding: 40px;
+.iconContainer {
+    // background-color: var(--bs-gray);
+    background-color: rgba(175, 175, 175, 0.936);
+    background-image: var(--bs-gradient);
+
+    padding: $icon-container-padding;
+    padding-left: $icon-container-padding !important;
+    padding-right: $icon-container-padding !important;
+}
+
+.iconContainer__text {
+    text-align: left;
+    margin-left: 5%;
+}
+
+.iconContainer__row {
+    height: 100%;
+    padding: 20px 50px;
+}
+
+.picContainer {
+    margin: 0px 0px;
+}
+
+.pic {
+    overflow: hidden;
+    width: 45%;
+    height: 100%;
+}
+
+.reactPic {
+    width: 65%;
+}
+
