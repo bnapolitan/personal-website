@@ -15,7 +15,7 @@ function LandingPage() {
         <>
             <Container className="landingContainer noPadding">
                 <Container>
-                    <Image className="landingPageBackground" src={BackgroundImage} alt="Beautiful mountain landscape" />
+                    <Image className="landingPageBanner" src={BackgroundImage} alt="Beautiful mountain landscape" />
                 </Container>
 
                 <Container>
