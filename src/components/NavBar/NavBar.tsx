@@ -1,13 +1,18 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 
 //Project files
+import { Button, useColorMode } from '@chakra-ui/react';
+import { colors } from '../../constants/styles';
 import "./NavBar.scss";
 
 function NavBarSite() {
+
+  const { colorMode, toggleColorMode } = useColorMode();
+
   return (
     <Navbar className='navBar' collapseOnSelect expand="lg" variant="dark">
       <Container>
@@ -45,6 +50,7 @@ function NavBarSite() {
           <Nav>
             <Nav.Link href="#deets">Contact</Nav.Link>
           </Nav>
+          <Button bg={colors['core-blue']} color="white" onClick={toggleColorMode}>{colorMode === "light" ? "Dark Mode" : "Light Mode"}</Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>

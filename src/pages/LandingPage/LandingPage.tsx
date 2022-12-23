@@ -1,10 +1,9 @@
 //Packages
-import React from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 //Images
-import BackgroundImage from "../../assets/images/LandingImage.jpg"
+import BackgroundImage from "../../assets/images/LandingImage.jpg";
 import IconRow from "./IconRow/IconRow";
 
 //Project files
@@ -21,9 +20,9 @@ function LandingPage() {
                 <Container>
                     <Row className="buttonRow">
                         <Col>
-                            <Link className="noHyperlink" to="/current-projects">
+                            <Link className="noHyperlink" to="/spotify">
                                 <Container className="col__hoverButton center">
-                                    <h3>Current Projects</h3>
+                                    <h3>Spotify Playlist Creator</h3>
                                 </Container>
                             </Link>
                         </Col>
@@ -35,9 +34,9 @@ function LandingPage() {
                             </Link>
                         </Col>
                         <Col>
-                            <Link className="noHyperlink" to="/contact">
+                            <Link className="noHyperlink" to="/current-projects">
                                 <Container className="col__hoverButton center">
-                                    <h3>Contact</h3>
+                                    <h3>Current Projects</h3>
                                 </Container>
                             </Link>
                         </Col>

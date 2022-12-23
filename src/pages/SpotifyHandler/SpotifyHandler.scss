@@ -1,0 +1,12 @@
+
+
+$page-container-padding: 30px;
+.pageContainer {
+    // background-color: var(--bs-gray);
+    background-color: rgba(175, 175, 175, 0.936);
+    background-image: var(--bs-gradient);
+
+    padding: $page-container-padding;
+    padding-left: $page-container-padding !important;
+    padding-right: $page-container-padding !important;
+}
