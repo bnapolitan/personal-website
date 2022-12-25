@@ -10,7 +10,9 @@ import './App.scss';
 import NavBarSite from './components/NavBar/NavBar';
 import CurrentProjects from './pages/CurrentProjects/CurrentProjects';
 import Gallery from './pages/Gallery/Gallery';
-import SpotifyHandler from './pages/SpotifyHandler/SpotifyHandler';
+import GlobalEntryPage from './pages/GlobalEntry/GlobalEntryPage';
+import RegisterCallbackPage from './pages/Spotify/RegisterCallback/RegisterCallbackPage';
+import SpotifyPage from './pages/Spotify/SpotifyPage';
 
 function App() {
   return (
@@ -24,7 +26,11 @@ function App() {
               <Route path="/" element={<LandingPage/>} />
               <Route path="/current-projects" element={<CurrentProjects/>} />
               <Route path="/gallery" element={<Gallery/>} />
-              <Route path="/spotify" element={<SpotifyHandler/>} />
+              <Route path="/spotify">
+                <Route index element={<SpotifyPage/>} />
+                <Route path="register-callback" element={<RegisterCallbackPage/>} />
+              </Route>
+              <Route path="/globalEntry" element={<GlobalEntryPage/>} />
             </Routes>
           </div>
         </BrowserRouter>

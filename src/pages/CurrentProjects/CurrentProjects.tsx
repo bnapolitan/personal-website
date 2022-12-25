@@ -1,6 +1,5 @@
 //Packages
-import React from "react";
-import { Col, Container, Image, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 
 //Images
 // import BackgroundImage from "../../assets/images/Dope_Mountains.jpg"

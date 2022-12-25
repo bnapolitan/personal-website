@@ -34,9 +34,9 @@ function LandingPage() {
                             </Link>
                         </Col>
                         <Col>
-                            <Link className="noHyperlink" to="/current-projects">
+                            <Link className="noHyperlink" to="/globalEntry">
                                 <Container className="col__hoverButton center">
-                                    <h3>Current Projects</h3>
+                                    <h3>Global Entry Notifications</h3>
                                 </Container>
                             </Link>
                         </Col>
