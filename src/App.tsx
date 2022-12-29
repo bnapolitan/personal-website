@@ -11,6 +11,7 @@ import NavBarSite from './components/NavBar/NavBar';
 import CurrentProjects from './pages/CurrentProjects/CurrentProjects';
 import Gallery from './pages/Gallery/Gallery';
 import GlobalEntryPage from './pages/GlobalEntry/GlobalEntryPage';
+import GlobalEntrySignup from './pages/GlobalEntry/Signup/GlobalEntrySignup';
 import RegisterCallbackPage from './pages/Spotify/RegisterCallback/RegisterCallbackPage';
 import SpotifyPage from './pages/Spotify/SpotifyPage';
 
@@ -30,7 +31,10 @@ function App() {
                 <Route index element={<SpotifyPage/>} />
                 <Route path="register-callback" element={<RegisterCallbackPage/>} />
               </Route>
-              <Route path="/globalEntry" element={<GlobalEntryPage/>} />
+              <Route path="/globalEntry">
+                <Route index element={<GlobalEntryPage/>} />
+                <Route path="signup" element={<GlobalEntrySignup/>} />
+              </Route>
             </Routes>
           </div>
         </BrowserRouter>

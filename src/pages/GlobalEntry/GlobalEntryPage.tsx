@@ -1,14 +1,10 @@
 import { Box, Button, Center, Flex, Heading, Highlight, Image, SimpleGrid, Stack, Text } from "@chakra-ui/react";
 import { createUseStyles } from "react-jss";
-import { loginToSpotify } from "../../apis/lambda/Spotify/services/userService";
+import { Link } from "react-router-dom";
 import GlobalEntry from '../../assets/images/GlobalEntry.png';
+import { globalEntryUseStyles } from "./Classes";
 
 const useStyles = createUseStyles({
-    topContainer: {
-        width: "100%",
-        padding: "160px 0"
-    },
-
     subheaderText: {
         padding: "20px 0"
     },
@@ -20,11 +16,11 @@ const useStyles = createUseStyles({
 function GlobalEntryPage() {
 
     const classes = useStyles();
+    const globalEntryClasses = globalEntryUseStyles();
 
     return ( 
         <>
-            {/* <h2>Global Entry page coming soon!</h2> */}
-            <Center bg={"twitter.50"} bgGradient='linear(to-b, blue.600, white)' className={classes.topContainer}>
+            <Center className={globalEntryClasses.gradientContainer} p="160px 0" bg={"twitter.50"} bgGradient='linear(to-b, blue.600, white)'>
                 <SimpleGrid maxW={"60%"} columns={2} spacing={"100"}>
                     <Box>
                         <Heading textAlign={"left"}>
@@ -36,9 +32,11 @@ function GlobalEntryPage() {
                             </Highlight>
                         </Text>
                         <Flex>
-                            <Button disabled={true} colorScheme="twitter" onClick={loginToSpotify}>
-                                Coming Soon!
-                            </Button>
+                            <Link to={"signup"}>
+                                <Button colorScheme="twitter">
+                                    Sign Up!
+                                </Button>
+                            </Link>
                         </Flex>
                     </Box>
                     <Stack align={"center"}>
