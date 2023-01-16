@@ -1,11 +1,16 @@
 import { Button, Center, Checkbox, Heading, Input, Stack, Text } from "@chakra-ui/react";
 import { useState } from "react";
+import { useRecoilValue } from "recoil";
 import { globalEntryUseStyles } from '../Classes';
+import { locationSelectionsState } from '../recoil/atoms';
 
 
 function ContactInfo() {
 
     const globalEntryClasses = globalEntryUseStyles();
+
+    //Recoil State
+    const locationSelections = useRecoilValue(locationSelectionsState);
 
     //React State
     const [emailToggle, setEmailToggle] = useState(false);
@@ -21,7 +26,7 @@ function ContactInfo() {
                             onChange={(event) => (setEmailToggle(event.target.checked))}
                         >Opt In</Checkbox>
                     </Center>
-                    <Input placeholder="dope.email@hotmail.com" variant={"filled"}
+                    <Input placeholder="dope.email@hotmail.com"
                         hidden={!emailToggle}
                     />
 
@@ -32,7 +37,7 @@ function ContactInfo() {
                             onChange={(event) => (setTextToggle(event.target.checked))}
                         >Opt In</Checkbox>
                     </Center>
-                    <Input placeholder="5558675309" variant={"filled"}
+                    <Input placeholder="5558675309"
                         hidden={!textToggle}
                     />
 
