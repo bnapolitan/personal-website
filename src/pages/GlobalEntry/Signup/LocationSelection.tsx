@@ -1,12 +1,16 @@
 import { Button, Center, Checkbox, CheckboxGroup, HStack, Heading, Input, Stack, Text, useToast } from "@chakra-ui/react";
+import * as EmailValidator from 'email-validator';
 import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useSetRecoilState } from 'recoil';
+import { registerNewGlobalFastUser } from "../../../apis/lambda/GlobalFast/services/userService";
 import { globalEntryLocations } from "../../../constants/globalEntryConstants";
 import { globalEntryUseStyles } from "../Classes";
 import { locationSelectionsState, singupStepState } from '../recoil/atoms';
 
 function LocationSelection() {
 
+    const navigate = useNavigate();
     const globalEntryClasses = globalEntryUseStyles();
 
     //Recoil State
@@ -15,6 +19,7 @@ function LocationSelection() {
 
     //React State
     const [locationsList, setLocationsList] = useState(globalEntryLocations);
+    const [email, setEmail] = useState("");
 
     const toast = useToast();
 
@@ -45,12 +50,13 @@ function LocationSelection() {
                 title: 'Alert',
                 description: "Please select at least 1 location before proceeding.",
                 status: "warning",
-                duration: 9000,
+                duration: 5000,
                 isClosable: true
             })
-        } else {
-            setSignupStep(1);
         }
+        
+        // setSignupStep(1);
+        handleUserRegister();
     }
 
     function filterLocations(filterString: string) {
@@ -65,14 +71,48 @@ function LocationSelection() {
         }
     
         setLocationsList(newLocationsList);
-      }
+    }
+
+    async function handleUserRegister()
+    {
+        if(!EmailValidator.validate(email))
+        {
+            return toast({
+                title: 'Alert',
+                description: "Invalid email! Please check your email.",
+                status: "warning",
+                duration: 5000,
+                isClosable: true
+            })
+        }
+        // navigate("/globalEntry/success", {
+        //     replace: false,
+        //     state: {
+        //         locations: locationSelections,
+        //         email: email
+        //     }
+        // });
+        registerNewGlobalFastUser(locationSelections, email)
+        .then(res => {
+            console.log("success");
+            navigate("/globalEntry/success", {
+                state: {
+                    locations: locationSelections,
+                    email: email
+                }
+            });
+        })
+        .catch(err => {
+            console.error(err);
+        })
+    }
 
 
     return (
         <Center className={globalEntryClasses.gradientContainer} bg={"twitter.50"} bgGradient='linear(to-b, blue.600, white)'>
             <Stack w={"400px"} position={"absolute"} top={"120px"}>
                 <Heading>What's your email?</Heading>
-                <Input placeholder="dope.email@hotmail.com" />
+                <Input placeholder="dope.email@hotmail.com" onChange={(event) => setEmail(event.target.value)} />
 
                 <Heading mt={"40px !important"}>Select your locations:</Heading>
                 <Text>Up to 5 locations</Text>
@@ -85,7 +125,7 @@ function LocationSelection() {
                 <Button mt={"20px !important"} mb={"24px !important"} w="50%" marginInline={"25% !important"} colorScheme={"green"} 
                     onClick={handleSingupClick}
                 >
-                    Next Step
+                    Sign Up!
                 </Button>
                 <CheckboxGroup>
                     {locationsList.map((locationString) => (

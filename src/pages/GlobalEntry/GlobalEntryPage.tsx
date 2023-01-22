@@ -33,7 +33,7 @@ function GlobalEntryPage() {
                         </Text>
                         <Flex>
                             <Link to={"signup"}>
-                                <Button colorScheme="twitter">
+                                <Button colorScheme="twitter" borderRadius={"xl"}>
                                     Sign Up!
                                 </Button>
                             </Link>

@@ -1,7 +1,7 @@
 import { Button, Center, Checkbox, Heading, Input, Stack, Text } from "@chakra-ui/react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
-import { registerNewGlobalFastUser } from "../../../apis/lambda/GlobalFast/services/userService";
 import { globalEntryUseStyles } from '../Classes';
 import { locationSelectionsState } from '../recoil/atoms';
 
@@ -9,6 +9,7 @@ import { locationSelectionsState } from '../recoil/atoms';
 function ContactInfo() {
 
     const globalEntryClasses = globalEntryUseStyles();
+    const navigate = useNavigate();
 
     //Recoil State
     const locationSelections = useRecoilValue(locationSelectionsState);
@@ -19,24 +20,31 @@ function ContactInfo() {
     const [emailValue, setEmailValue] = useState("");
     const [phoneNumberValue, setPhoneNumberValue] = useState("");
 
-    function handleUserRegister()
+    async function handleUserRegister()
     {
-        registerNewGlobalFastUser(locationSelections, emailValue, phoneNumberValue)
-        .then(res => {
-            console.log("success");
-        })
-        .catch(err => {
-            console.log(`ERROR`);
-            console.log(err);
-            console.error(err);
-        })
-
-        // lambdaClient.get("/hello?code=fdsa")
+        console.log(emailValue);
+        
+        navigate("/globalEntry/success", {
+            replace: false,
+            state: {
+                locations: locationSelections,
+                email: emailValue,
+                phoneNumber: phoneNumberValue
+            }
+        });
+        // registerNewGlobalFastUser(locationSelections, emailValue, phoneNumberValue)
         // .then(res => {
-        //     console.log(res);
+        //     console.log("success");
+        //     navigate("/globalEntry/success", {
+        //         state: {
+        //             locations: locationSelections,
+        //             email: emailValue,
+        //             phoneNumber: phoneNumberValue
+        //         }
+        //     });
         // })
         // .catch(err => {
-        //     console.log(err);
+        //     console.error(err);
         // })
     }
 
