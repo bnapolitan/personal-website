@@ -1,4 +1,4 @@
-import { lambdaBaseURL } from '../client';
+import { lambdaBaseURL } from '../../client';
 
 export function loginToSpotify()
 {

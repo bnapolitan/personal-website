@@ -13,7 +13,7 @@ lambdaClient.interceptors.request.use((config) => {
         headers: {
             accept: "application/json"
         },
-        withCredentials: true
+        withCredentials: false
     })
 })
 
@@ -25,8 +25,11 @@ personalClient.interceptors.request.use((config) => {
     return ({
         ...config,
         headers: {
-            accept: "application/json"
+            accept: "application/json",
+            'Access-Control-Allow-Origin': '*',
+            // origin: "http://localhost:3000",
+            "Content-Type": "application/x-www-form-urlencoded"
         },
-        withCredentials: true
+        withCredentials: false
     })
 })
