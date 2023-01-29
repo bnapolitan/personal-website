@@ -54,6 +54,16 @@ function LocationSelection() {
                 isClosable: true
             })
         }
+        if(locationSelections.length > 3)
+        {
+            return toast({
+                title: 'Alert',
+                description: `You can select a maximum of 3 locations. You have selected ${locationSelections.length}`,
+                status: "warning",
+                duration: 5000,
+                isClosable: true
+            });
+        }
         
         // setSignupStep(1);
         handleUserRegister();
